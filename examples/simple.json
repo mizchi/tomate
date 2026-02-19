@@ -1,0 +1,43 @@
+{
+  "name": "simple-workflow",
+  "description": "A simple plan-implement-review workflow",
+  "movements": [
+    {
+      "name": "plan",
+      "personaDisplayName": "Planner",
+      "persona": "You are a software architect who creates clear, actionable plans.",
+      "instructionTemplate": "Create a plan for the following task: {task}",
+      "rules": [
+        {"condition": "plan is complete", "next": "implement"}
+      ]
+    },
+    {
+      "name": "implement",
+      "personaDisplayName": "Coder",
+      "persona": "You are an expert programmer who writes clean, tested code.",
+      "instructionTemplate": "Implement the plan. Task: {task}",
+      "edit": true,
+      "passPreviousResponse": true,
+      "rules": [
+        {"condition": "implementation complete", "next": "review"}
+      ]
+    },
+    {
+      "name": "review",
+      "personaDisplayName": "Reviewer",
+      "persona": "You are a thorough code reviewer.",
+      "instructionTemplate": "Review the implementation for: {task}",
+      "passPreviousResponse": true,
+      "rules": [
+        {"condition": "approved", "next": "COMPLETE"},
+        {"condition": "needs changes", "next": "implement"}
+      ]
+    }
+  ],
+  "initialMovement": "plan",
+  "maxMovements": 10,
+  "loopDetection": {
+    "maxConsecutiveSameStep": 5,
+    "action": "abort"
+  }
+}

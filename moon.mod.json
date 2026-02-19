@@ -1,0 +1,18 @@
+{
+  "name": "mizchi/tomate",
+  "version": "0.1.0",
+  "deps": {
+    "moonbitlang/x": "0.4.40"
+  },
+  "readme": "README.md",
+  "repository": "https://github.com/mizchi/tomate",
+  "license": "MIT",
+  "keywords": [
+    "moonbit",
+    "agent",
+    "orchestration"
+  ],
+  "description": "Multi-agent orchestration engine for MoonBit",
+  "source": "src",
+  "preferred-target": "native"
+}

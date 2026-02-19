@@ -1,0 +1,7 @@
+import {
+  "mizchi/tomate/types",
+}
+
+options(
+  "native-stub": [ "process_native.c" ],
+)
